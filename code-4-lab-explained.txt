@@ -1,0 +1,31 @@
+---------Example 1------------------
+Το πρόγραμμα δημιουργεί μια διεργασία child χρησιμοποιώντας τη συνάρτηση fork(). H child εκτελεί  την εντολή ls -l μέσω της συνάρτησης execlp() για την εμφάνιση των περιεχομένων του directory σε long format. Η διεργασία γονέας περιμένει να ολοκληρωθεί η διεργασία παιδί και εκτυπώνει ένα μήνυμα τερματισμού
+Output:
+Child process : PID = 12321, Parent PID = 12323  
+-rw-rw-r-- 1 asegkani asegkani   101 Dec 29 12:34 hash_output.txt
+-rwxrwxr-x 1 asegkani asegkani   421 Dec 29 12:32 hash_script
+Parent Process: PID = 12323 , Created Child PID = 12321
+Parent Processs: Child has terminated.
+ -------------example 2---------------------
+
+Το πρόγραμμα εμφανίζει τα PID της τρέχουσας διεργασίας και το PPID του γονέα.
+Χρησιμοποιεί τις getpit() και τη getppid() για να ανακτήσει αυτα τα IDs ενω με τη χρήση της printf τα εκτυπώνει
+Current Process ID (PID): 12345
+Parent Process ID (PPID): 6789
+Αυτό είναι ένα παράδειγμα του output.
+
+--------------Example 3-------------------
+Το πρόγραμα ενεργοποιείται με το Contro+C . Όταν το πρόγραμμα λάβει το σήμα, η συνάρτηση sigint_handler εκτυπώνει ένα μήνυμα και τερματίζει το πρόγραμμα ομαλά. Ο κώδικας εκτελεί έναν άπειρο βρόχο που κρατά το πρόγραμμα ενεργό και περιμένει το σήμα, εμφανίζοντας κάθε 2 δευτερόλεπτα το μήνυμα "Running... Press Ctrl+C to exit". Όταν ο χρήστης πατήσει Ctrl+C, το πρόγραμμα εκτυπώνει το μήνυμα "Caught signal 2 (SIGINT). Exiting gracefully..." και τερματίζεται.
+--------------------Example 4----------------------
+Σε αυτό το παράδειγμα εκτυπ'ωνεται το μήνμυμα "Received SIGINT,but ignoring it." και συνεχίζει να εκτελείται. Το πρόγραμμα δεν τερματίζεται. Πρέπει να ανοιξουμε νεο παράθυρο και με την εντολή kill τη τερματίζουμε.
+---------------Example.5------------------
+Ο κώδικας μεταγλωττίζεται (π.χ., gcc -o program_name program_name.c) και εκτελείται (π.χ., ./program_name). Δημιουργείται διεργασία παιδί, και ο γονέας στέλνει σήματα στο παιδί.
+output:
+Child process ID: 12346. Waiting for SIGUSR1...
+Parent process ID: 12345. Child PID: 12346
+Parent sending SIGUSR1 to child.
+Child received SIGUSR1 (signal 10).
+Parent sending SIGTERM to child.
+Child process terminated.
+Επεξήγηση Κώδικα: Ο γονέας δημιουργεί μια διεργασία παιδί με fork(). Το παιδί περιμένει για το σήμα SIGUSR1, το οποίο στέλνει ο γονέας με τη χρήση της kill(). Μετά, ο γονέας στέλνει το SIGTERM για να τερματίσει το παιδί και περιμένει για τον τερματισμό του με τη wait().
+

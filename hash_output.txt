@@ -1,1 +1,5 @@
-Output of the LAST 4 digit integer: 2d71287dce714724e0a59fe239e20dded7debc212ad8648199491c5be5901ef7
+Output of the LAST 4 digit integer: 0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c
+Error: Ο αριθμός πρέπει αν είναι 4-ψήφιος
+Error: Ο αριθμός πρέπει αν είναι 4-ψήφιος
+Error: Ο αριθμός πρέπει αν είναι 4-ψήφιος
+Error: To input πρέπει να είναι αριθμός. 
